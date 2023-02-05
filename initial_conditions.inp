@@ -1,0 +1,8 @@
+###### CONDICIONES INICIALES ######
+3.1415 !phi1_0
+0.0    !w1_0
+1.5702 !phi2_0
+0.0    !w2_0
+0.0    !x_0 tiempo inicial
+20.0   !x_f tiempo final
+500000 !n_steps 

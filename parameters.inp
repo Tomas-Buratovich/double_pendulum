@@ -1,0 +1,6 @@
+########## PARAMETROS DEL SISTEMA #########
+9.81  !gravedad
+0.5  !longitud pendulo 1
+0.3  !longitud pendulo 2
+2.0  !masa pendulo 1
+2.0  !masa pendulo 2
