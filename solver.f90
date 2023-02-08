@@ -1,16 +1,20 @@
 
-! This subroutine implements the fourth order Runge-Kutta method 
-! to solve a system of four ODEs. 
+!------------------------------------------------------------------------!
+!    This subroutine implements the fourth order Runge-Kutta method      !
+!                 to solve a system of four ODEs.                        !
+!------------------------------------------------------------------------!
+
 
 MODULE solver
 
 CONTAINS
 
-!************************************************************************
+
 SUBROUTINE rk4(g,l1,l2,m1,m2,m,y,dydx,n,x,h,yout,derivs)
-!     Numerical Recipes (2a ed.): p. 706
-!************************************************************************
+
   IMPLICIT NONE
+
+  !Variable declaration
   INTEGER, INTENT(IN) :: n
   REAL(kind=8), INTENT(IN) :: x, h, dydx(n), y(n)
   REAL(kind=8), INTENT(INOUT) :: yout(n)

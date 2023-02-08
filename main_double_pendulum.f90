@@ -1,10 +1,12 @@
 
-
-! main program souble pendulum                      
-                                                                      
-! Tomás Buratovich - Final Física Computacional    02/2023      
-
+!--------------------------------------------------------------------------------------------!
+!   main program double pendulum: Solves de set of ODEs using Runge-Kutta 4th. order method  !                    
+!                                                                                            !
+!               Tomás Buratovich - Final Física Computacional    02/2023                     !
+!--------------------------------------------------------------------------------------------!
  
+
+
 PROGRAM main_double_pendulum
 USE solver
 
@@ -16,7 +18,18 @@ INTEGER, PARAMETER :: n=4
 ! External subroutines
 EXTERNAL derivatives
 
-! Definición de variables 
+!-----------------------------------------------------------------------------!
+!                          VARIABLE DICTIONARY                                !
+!-----------------------------------------------------------------------------!
+! y(n)     : Vector containing the info of w(omega) = d(theta)/dt             !
+! dy_dx    :                                                                  !
+! y_out(n) :                                                                  !
+! g        : Gravity                                                          !
+! l1, l2   : Longitude of each individual pendulum                            !
+! m1, l2   : Masses of each individual pendulum                               !
+!-----------------------------------------------------------------------------!
+
+! Variable definition 
 REAL(8) :: y(n), dy_dx(n), y_out(n)
 REAL(8) :: pi
 REAL(8) :: g,l1,l2,m1,m2,m 
@@ -122,7 +135,7 @@ END PROGRAM
 
 
 
-
+! Displays the expressions of the derivatives given by the theory
 
 SUBROUTINE derivatives(N,g,r1,r2,m1,m2,m,x,y,dy)
 IMPLICIT NONE 
