@@ -1,3 +1,6 @@
 *.dat
 animation.py
 phase_space.py
+*.mod
+*.o
+*.x
