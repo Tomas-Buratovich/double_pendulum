@@ -32,19 +32,19 @@ SUBROUTINE rk4(g,l1,l2,m1,m2,m,y,dydx,n,x,h,yout,derivs)
   do i = 1, n
     yt(i) = y(i) + hh*dydx(i)
   end do
-  call derivatives(n,g,l1,l2,m1,m2,m,xh, yt, dyt)
+  call derivs(n,g,l1,l2,m1,m2,m,xh, yt, dyt)
 
 
   do i = 1, n
     yt(i) = y(i) + hh*dyt(i)
   end do
-  call derivatives(n,g,l1,l2,m1,m2,m,xh, yt, dym)
+  call derivs(n,g,l1,l2,m1,m2,m,xh, yt, dym)
 
   do i = 1, n
     yt(i) = y(i) + h*dym(i)
     dym(i) = dyt(i) + dym(i)
   end do
-  call derivatives(n,g,l1,l2,m1,m2,m,x + h, yt, dyt)
+  call derivs(n,g,l1,l2,m1,m2,m,x + h, yt, dyt)
 
   do i = 1, n
     yout(i) = y(i) + h6*(dydx(i) + dyt(i) + 2.0d0*dym(i))
