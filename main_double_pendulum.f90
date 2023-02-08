@@ -1,5 +1,7 @@
 
 !--------------------------------------------------------------------------------------------!
+!                                    DOUBLE PENDULUM                                         !
+!--------------------------------------------------------------------------------------------!
 !   main program double pendulum: Solves de set of ODEs using Runge-Kutta 4th. order method  !                    
 !                                                                                            !
 !               Tomás Buratovich - Final Física Computacional    02/2023                     !
@@ -18,16 +20,24 @@ INTEGER, PARAMETER :: n=4
 ! External subroutines
 EXTERNAL derivatives
 
-!-----------------------------------------------------------------------------!
-!                          VARIABLE DICTIONARY                                !
-!-----------------------------------------------------------------------------!
-! y(n)     : Vector containing the info of w(omega) = d(theta)/dt             !
-! dy_dx    :                                                                  !
-! y_out(n) :                                                                  !
-! g        : Gravity                                                          !
-! l1, l2   : Longitude of each individual pendulum                            !
-! m1, l2   : Masses of each individual pendulum                               !
-!-----------------------------------------------------------------------------!
+!-------------------------------------------------------------------------------!
+!                             VARIABLE DICTIONARY                               !
+!-------------------------------------------------------------------------------!
+! y(n)     : Vector containing the info of w(omega) = d(theta)/dt               !
+! dy_dx    : Vector containing the first derivative of w and seconf of theta    !
+! y_out(n) : Vector that stores the solutions given by the RK4 method           !
+! g        : Gravity                                                            !
+! l1, l2   : Longitude of each individual pendulum                              !
+! m1, l2   : Masses of each individual pendulum                                 !
+! err      : IOSTAT variable nickname (displays error message when IOSTAT !=0)  !
+! i        : Iteration variable                                                 !
+! x0, xf   : initial and final values of Independent variables (in this case    !
+!            as it is a physical system represents the initial and final time)  !
+! xx1, yy1 : Cartesian coordinates of pendulum 1                                !
+! xx2, yy2 : Cartesian coordinates of pendulum 2                                !
+! n_steps  : Stores the time step used for discretization                       !
+! nn       : Vector dimension variable passed to subroutine                     !
+!-------------------------------------------------------------------------------!
 
 ! Variable definition 
 REAL(8) :: y(n), dy_dx(n), y_out(n)
